@@ -22,7 +22,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from 'components/HelloWorld.vue'; // @ is an alias to /src
-import {delayFunc} from '@/utils/dateFormat';
+import {delayFunc} from 'utils/dateFormat.ts';
 import helper from '@/utils/helper';
 import userName from '@/utils/userName';
 

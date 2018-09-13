@@ -28,6 +28,7 @@ module.exports = {
       .set('src', path.resolve(__dirname, './src'))
       .set('common', path.resolve(__dirname, './src/common'))
       .set('assets', path.resolve(__dirname, './src/assets'))
+      .set('utils', path.resolve(__dirname, './src/utils'))
       .set('views', path.resolve(__dirname, './src/views'))
       .set('routes', path.resolve(__dirname, './src/routes'))
       .set('store', path.resolve(__dirname, './src/store'))
