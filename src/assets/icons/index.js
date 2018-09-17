@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import SvgIcon from 'components/svgIcon/index.vue'; // svg组件
+import SvgIcon from '@/components/svgIcon/index.vue'; // svg组件
 import generateIconsView from './generateIconsView';
 
 

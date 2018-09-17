@@ -36,5 +36,36 @@ module.exports = {
   },
   css: {
     sourceMap: isProduction
+  },
+  baseUrl: '/spa/',
+  assetsDir: 'static',
+  devServer: {
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:8071',
+        //target: 'http://localhost:8080/mock',
+        // onProxyRes(proxyRes, req, res) {
+        //   console.log('res', res);
+        //   console.log('proxyRes', proxyRes);
+        //   let _write = res.write;
+        //   let output;
+        //   let body = '';
+          
+        //   proxyRes.on('data', (data) => {
+        //     data = data.toString('utf-8');
+        //     body += data;
+        //   });
+  
+        //   res.write =  (data) => {
+        //     try {
+        //       // eslint-disable-next-line
+        //       eval('output='+body)
+        //       output = mock.mock(output);
+        //       _write.call(res,JSON.stringify(output));
+        //     } catch (err) {}
+        //   };        
+        // }
+      }
+    }
   }
 };
