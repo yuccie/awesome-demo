@@ -44,7 +44,7 @@ export default class Home extends Vue {
   date : string = ''
 
   async created() {
-    const data : any = await request({
+    const data: any = await request({
       url : '/api/test' ,
       method : 'get'
     });
@@ -54,7 +54,7 @@ export default class Home extends Vue {
   }
 
   async getOtherData() {
-    const otherData:any = await request({
+    const otherData: any = await request({
       url: '/apiOther/newTest',
       method: 'get'
     });

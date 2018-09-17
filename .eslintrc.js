@@ -45,7 +45,7 @@ module.exports = {
 
     'brace-style': 'warn', // else 关键字要与花括号保持在同一行
     'keyword-spacing': 'warn', // 强制在关键字前后使用一致的空格
-    'space-infix-ops': 'warn' // 字符串拼接操作符 (Infix operators) 之间要留空格
+    //'space-infix-ops': 'warn' // 字符串拼接操作符 (Infix operators) 之间要留空格 会要求typescript类型定义部分两边都有空格
   },
   parserOptions: {
     parser: 'typescript-eslint-parser'   
