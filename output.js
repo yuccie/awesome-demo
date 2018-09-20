@@ -14,7 +14,7 @@
   output: {
     path: '/Users/finup/workspace/vue-spa-template-3.0/dist',
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/spa/'
   },
   resolve: {
     symlinks: false,
@@ -91,7 +91,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'img/[name].[hash:8].[ext]'
+                  name: 'static/img/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -109,7 +109,7 @@
           {
             loader: 'file-loader',
             options: {
-              name: 'img/[name].[hash:8].[ext]'
+              name: 'static/img/[name].[hash:8].[ext]'
             }
           }
         ]
@@ -126,7 +126,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'media/[name].[hash:8].[ext]'
+                  name: 'static/media/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -145,7 +145,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'fonts/[name].[hash:8].[ext]'
+                  name: 'static/fonts/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -1074,7 +1074,7 @@
                 '.tsx'
               ],
               cache: true,
-              cacheIdentifier: '2de1c971',
+              cacheIdentifier: 'e86f6c96',
               emitWarning: true,
               emitError: false,
               formatter: function () { /* omitted long function */ }
@@ -1091,7 +1091,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: '113ef2ac'
+              cacheIdentifier: 'bb6f23d2'
             }
           },
           /* config.module.rule('ts').use('babel-loader') */
@@ -1120,7 +1120,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: '113ef2ac'
+              cacheIdentifier: 'bb6f23d2'
             }
           },
           /* config.module.rule('tsx').use('babel-loader') */
@@ -1166,7 +1166,7 @@
       {
         'process.env': {
           NODE_ENV: '"development"',
-          BASE_URL: '"/"'
+          BASE_URL: '"/spa/"'
         }
       }
     ),

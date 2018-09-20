@@ -13,9 +13,9 @@
   },
   output: {
     path: '/Users/finup/workspace/vue-spa-template-3.0/dist',
-    filename: 'js/[name].[contenthash:8].js',
-    publicPath: '/',
-    chunkFilename: 'js/[name].[contenthash:8].js'
+    filename: 'static/js/[name].[contenthash:8].js',
+    publicPath: '/spa/',
+    chunkFilename: 'static/js/[name].[contenthash:8].js'
   },
   resolve: {
     symlinks: false,
@@ -25,6 +25,7 @@
       src: '/Users/finup/workspace/vue-spa-template-3.0/src',
       common: '/Users/finup/workspace/vue-spa-template-3.0/src/common',
       assets: '/Users/finup/workspace/vue-spa-template-3.0/src/assets',
+      utils: '/Users/finup/workspace/vue-spa-template-3.0/src/utils',
       views: '/Users/finup/workspace/vue-spa-template-3.0/src/views',
       routes: '/Users/finup/workspace/vue-spa-template-3.0/src/routes',
       store: '/Users/finup/workspace/vue-spa-template-3.0/src/store',
@@ -63,7 +64,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/vue-loader',
-              cacheIdentifier: '1dd9ce41'
+              cacheIdentifier: '63b6bfa7'
             }
           },
           /* config.module.rule('vue').use('vue-loader') */
@@ -74,7 +75,7 @@
                 preserveWhitespace: false
               },
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/vue-loader',
-              cacheIdentifier: '1dd9ce41'
+              cacheIdentifier: '63b6bfa7'
             }
           }
         ]
@@ -91,7 +92,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'img/[name].[hash:8].[ext]'
+                  name: 'static/img/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -109,7 +110,7 @@
           {
             loader: 'file-loader',
             options: {
-              name: 'img/[name].[hash:8].[ext]'
+              name: 'static/img/[name].[hash:8].[ext]'
             }
           }
         ]
@@ -126,7 +127,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'media/[name].[hash:8].[ext]'
+                  name: 'static/media/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -145,7 +146,7 @@
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'fonts/[name].[hash:8].[ext]'
+                  name: 'static/fonts/[name].[hash:8].[ext]'
                 }
               }
             }
@@ -174,7 +175,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
@@ -204,7 +205,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('css').oneOf('vue').use('css-loader') */
@@ -232,7 +233,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
@@ -261,7 +262,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('css').oneOf('normal').use('css-loader') */
@@ -295,7 +296,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('postcss').oneOf('vue-modules').use('css-loader') */
@@ -325,7 +326,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('postcss').oneOf('vue').use('css-loader') */
@@ -353,7 +354,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('postcss').oneOf('normal-modules').use('css-loader') */
@@ -382,7 +383,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('postcss').oneOf('normal').use('css-loader') */
@@ -416,7 +417,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('css-loader') */
@@ -453,7 +454,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('scss').oneOf('vue').use('css-loader') */
@@ -488,7 +489,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('css-loader') */
@@ -524,7 +525,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('scss').oneOf('normal').use('css-loader') */
@@ -565,7 +566,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('css-loader') */
@@ -603,7 +604,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('sass').oneOf('vue').use('css-loader') */
@@ -639,7 +640,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('css-loader') */
@@ -676,7 +677,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('sass').oneOf('normal').use('css-loader') */
@@ -718,7 +719,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('less').oneOf('vue-modules').use('css-loader') */
@@ -755,7 +756,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('less').oneOf('vue').use('css-loader') */
@@ -790,7 +791,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('less').oneOf('normal-modules').use('css-loader') */
@@ -826,7 +827,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('less').oneOf('normal').use('css-loader') */
@@ -867,7 +868,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('css-loader') */
@@ -905,7 +906,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('stylus').oneOf('vue').use('css-loader') */
@@ -941,7 +942,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('css-loader') */
@@ -978,7 +979,7 @@
               {
                 loader: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/mini-css-extract-plugin/dist/loader.js',
                 options: {
-                  publicPath: '../'
+                  publicPath: '../../'
                 }
               },
               /* config.module.rule('stylus').oneOf('normal').use('css-loader') */
@@ -1020,7 +1021,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/babel-loader',
-              cacheIdentifier: '498bbe68'
+              cacheIdentifier: '3997332e'
             }
           },
           /* config.module.rule('js').use('thread-loader') */
@@ -1054,7 +1055,7 @@
                 '.tsx'
               ],
               cache: true,
-              cacheIdentifier: '6eaad056',
+              cacheIdentifier: 'ba47a486',
               emitWarning: true,
               emitError: false,
               formatter: function () { /* omitted long function */ }
@@ -1071,7 +1072,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: 'e18f90c8'
+              cacheIdentifier: '606d489c'
             }
           },
           /* config.module.rule('ts').use('thread-loader') */
@@ -1104,7 +1105,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: 'e18f90c8'
+              cacheIdentifier: '606d489c'
             }
           },
           /* config.module.rule('tsx').use('thread-loader') */
@@ -1211,9 +1212,11 @@
         common: {
           name: 'chunk-common',
           minChunks: 2,
-          priority: -20,
-          chunks: 'initial',
-          reuseExistingChunk: true
+          priority: 2,
+          chunks: 'all',
+          reuseExistingChunk: false,
+          minSize: 0,
+          maxInitialRequests: 5
         }
       }
     }
@@ -1226,7 +1229,7 @@
       {
         'process.env': {
           NODE_ENV: '"production"',
-          BASE_URL: '"/"'
+          BASE_URL: '"/spa/"'
         }
       }
     ),
@@ -1246,8 +1249,8 @@
     /* config.plugin('extract-css') */
     new MiniCssExtractPlugin(
       {
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css'
+        filename: 'static/css/[name].[contenthash:8].css',
+        chunkFilename: 'static/css/[name].[contenthash:8].css'
       }
     ),
     /* config.plugin('optimize-css') */

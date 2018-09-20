@@ -5,7 +5,10 @@
 </template>
 
 <script>
+import helper from 'utils/helper';
+
 const PRODUCTION_TYPE = '1';
+const helperInfo = helper();
 let myVar = 'hello';
 function name () {
   return 'wangyang';

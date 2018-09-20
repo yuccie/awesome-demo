@@ -1,6 +1,8 @@
+
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production' ? true : false;
 const iconRoot = path.resolve(__dirname, './src/assets/icons');
+const mockRes = require('./mockRes');
 
 module.exports = {
   chainWebpack: (config) => {
@@ -33,39 +35,45 @@ module.exports = {
       .set('routes', path.resolve(__dirname, './src/routes'))
       .set('store', path.resolve(__dirname, './src/store'))
       .set('components', path.resolve(__dirname, './src/components'));
+    
+    if (isProduction) {
+      config.merge({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              common: {
+                minSize: 0,
+                chunks: 'async'
+              }
+            }
+          },
+          runtimeChunk: true
+        }
+      });
+    }
   },
-  css: {
-    sourceMap: isProduction
-  },
+
+  css: undefined,
   baseUrl: '/spa/',
   assetsDir: 'static',
+
   devServer: {
     proxy: {
       '/api/*': {
-        target: 'http://localhost:8071',
-        //target: 'http://localhost:8080/mock',
-        // onProxyRes(proxyRes, req, res) {
-        //   console.log('res', res);
-        //   console.log('proxyRes', proxyRes);
-        //   let _write = res.write;
-        //   let output;
-        //   let body = '';
-          
-        //   proxyRes.on('data', (data) => {
-        //     data = data.toString('utf-8');
-        //     body += data;
-        //   });
-  
-        //   res.write =  (data) => {
-        //     try {
-        //       // eslint-disable-next-line
-        //       eval('output='+body)
-        //       output = mock.mock(output);
-        //       _write.call(res,JSON.stringify(output));
-        //     } catch (err) {}
-        //   };        
-        // }
+        //target: 'http://localhost:8071',
+        target: 'http://www.baidu.com',
+        selfHandleResponse: true,
+        onProxyRes(proxyRes, req, res) {          
+          let url = req.url;
+          let data = mockRes[url];
+          res.json(data);
+        }
       }
     }
-  }
+  },
+
+  outputDir: 'dest',
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined
 };

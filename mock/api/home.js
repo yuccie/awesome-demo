@@ -6,7 +6,7 @@ module.exports = function(router) {
     res.json({
       code: '00000',
       data: {
-        name: 'admin',
+        name: 'peter',
       },
       msg: ''
     });

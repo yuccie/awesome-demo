@@ -1,6 +1,7 @@
 <template>
   <div class="home">
   	<h1>首页</h1>
+    <h2>{{helperInfo + '111'}}</h2>
     <h3>{{userName}}</h3>
     <h3>{{date}}</h3>
     <img alt="Vue logo" src="../assets/logo.png">
@@ -24,9 +25,9 @@
 import { Component , Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import {delayFunc} from 'utils/dateFormat';
+import helper from 'utils/helper';
 import userName from 'utils/userName';
 import request from 'utils/request';
-import helper from '@/utils/helper';
 
 delayFunc(() => {
   //console.log('1秒延时');
@@ -37,13 +38,12 @@ delayFunc(() => {
     HelloWorld
   }
 })
-export default class Home extends Vue {
+export default class Other extends Vue {
+  helperInfo : string = helper()
   userName : string = ''
   date : string = ''
 
   async created() {
-    //const helperInfo = helper();
-
     const data: any = await request({
       url : '/api/test' ,
       method : 'get'
@@ -51,18 +51,6 @@ export default class Home extends Vue {
     this.userName = data.name;
     // eslint-disable-next-line
     console.log('data' , data);
-    this.getOtherData();
   }
-
-  async getOtherData() {
-    const otherData: any = await request({
-      url: '/apiOther/newTest',
-      method: 'get'
-    });
-    this.date = otherData.currentDate;
-    // eslint-disable-next-line
-    console.log('otherData', otherData);
-  }
-
 }
 </script>
