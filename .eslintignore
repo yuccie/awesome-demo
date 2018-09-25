@@ -1,3 +1,3 @@
-./output.js
-./output.production.js
-./dest/**/*.js
+output.js
+output.production.js
+dest/**/*.js
