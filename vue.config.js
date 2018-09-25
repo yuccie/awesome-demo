@@ -1,8 +1,9 @@
-
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production' ? true : false;
 const iconRoot = path.resolve(__dirname, './src/assets/icons');
 const mockRes = require('./mockRes');
+const buildConfig = require('./build/config');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   chainWebpack: (config) => {
@@ -26,6 +27,8 @@ module.exports = {
         .options({
           symbolId: 'icon-[name]'
         });
+
+    // 路径别名配置
     config.resolve.alias
       .set('src', path.resolve(__dirname, './src'))
       .set('common', path.resolve(__dirname, './src/common'))
@@ -36,6 +39,7 @@ module.exports = {
       .set('store', path.resolve(__dirname, './src/store'))
       .set('components', path.resolve(__dirname, './src/components'));
     
+    // 生产环境分包
     if (isProduction) {
       config.merge({
         optimization: {
@@ -51,28 +55,45 @@ module.exports = {
         }
       });
     }
+
+    // static目录直接copy
+    config
+      .plugin('copyStatic')
+      .use(CopyWebpackPlugin, [
+        [{
+          from: path.resolve(__dirname, './static'),
+          to: buildConfig.assetsDir,
+          ignore: ['.*']        
+        }]
+      ]);
   },
+  // 不会被inspect审查
+  // configureWebpack: {
+  //   plugins: [
+  //     new CopyWebpackPlugin([{
+  //       from: path.resolve(__dirname, './test'),
+  //       to: buildConfig.assetsDir,
+  //       ignore: ['.*']         
+  //     }])
+  //   ]
+  // },  
 
   css: undefined,
-  baseUrl: '/spa/',
-  assetsDir: 'static',
+  // baseUrl: '/spa/',
+  assetsDir: buildConfig.assetsDir,
 
   devServer: {
-    proxy: {
-      '/api/*': {
-        //target: 'http://localhost:8071',
-        target: 'http://www.baidu.com',
-        selfHandleResponse: true,
-        onProxyRes(proxyRes, req, res) {          
-          let url = req.url;
-          let data = mockRes[url];
-          res.json(data);
-        }
-      }
-    }
+    before(app) {
+      app.all('/api/*', (req, res, next) => {
+        console.log('req', req.path);
+        let url = req.url;
+        let data = mockRes[url];
+        res.json(data);
+      });
+    },
   },
 
-  outputDir: 'dest',
+  outputDir: buildConfig.outputDir,
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
   parallel: undefined

@@ -3,21 +3,20 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'assets/icons';
-import '../mockJs';
 
 Vue.config.productionTip = false;
 
-const testPromiseFinally = () => {
-  return new Promise((resolve, reject) => {
-    resolve(1);
-  }).finally(() => {
-    //console.log(1);
-  });
-};
+// const testPromiseFinally = () => {
+//   return new Promise((resolve, reject) => {
+//     resolve(1);
+//   }).finally(() => {
+//     //console.log(1);
+//   });
+// };
 
-testPromiseFinally().then(() => {
-  //console.log(2);
-});
+// testPromiseFinally().then(() => {
+//   //console.log(2);
+// });
 
 new Vue({
   router,

@@ -12,9 +12,9 @@
     child_process: 'empty'
   },
   output: {
-    path: '/Users/finup/workspace/vue-spa-template-3.0/dist',
+    path: '/Users/finup/workspace/vue-spa-template-3.0/dest',
     filename: '[name].js',
-    publicPath: '/spa/'
+    publicPath: '/'
   },
   resolve: {
     symlinks: false,
@@ -63,7 +63,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/vue-loader',
-              cacheIdentifier: '2503f907'
+              cacheIdentifier: 'f04b3c3c'
             }
           },
           /* config.module.rule('vue').use('vue-loader') */
@@ -74,7 +74,7 @@
                 preserveWhitespace: false
               },
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/vue-loader',
-              cacheIdentifier: '2503f907'
+              cacheIdentifier: 'f04b3c3c'
             }
           }
         ]
@@ -1044,7 +1044,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/babel-loader',
-              cacheIdentifier: '235bd5aa'
+              cacheIdentifier: '520ad3b6'
             }
           },
           /* config.module.rule('js').use('babel-loader') */
@@ -1074,7 +1074,7 @@
                 '.tsx'
               ],
               cache: true,
-              cacheIdentifier: 'e86f6c96',
+              cacheIdentifier: '78907abe',
               emitWarning: true,
               emitError: false,
               formatter: function () { /* omitted long function */ }
@@ -1091,7 +1091,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: 'bb6f23d2'
+              cacheIdentifier: '2c12516e'
             }
           },
           /* config.module.rule('ts').use('babel-loader') */
@@ -1120,7 +1120,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: '/Users/finup/workspace/vue-spa-template-3.0/node_modules/.cache/ts-loader',
-              cacheIdentifier: 'bb6f23d2'
+              cacheIdentifier: '2c12516e'
             }
           },
           /* config.module.rule('tsx').use('babel-loader') */
@@ -1166,7 +1166,7 @@
       {
         'process.env': {
           NODE_ENV: '"development"',
-          BASE_URL: '"/spa/"'
+          BASE_URL: '"/"'
         }
       }
     ),
@@ -1219,7 +1219,7 @@
       [
         {
           from: '/Users/finup/workspace/vue-spa-template-3.0/public',
-          to: '/Users/finup/workspace/vue-spa-template-3.0/dist',
+          to: '/Users/finup/workspace/vue-spa-template-3.0/dest',
           ignore: [
             'index.html',
             '.DS_Store'
@@ -1235,6 +1235,18 @@
         formatter: 'codeframe',
         checkSyntacticErrors: false
       }
+    ),
+    /* config.plugin('copyStatic') */
+    new CopyWebpackPlugin(
+      [
+        {
+          from: '/Users/finup/workspace/vue-spa-template-3.0/static',
+          to: 'static',
+          ignore: [
+            '.*'
+          ]
+        }
+      ]
     )
   ],
   entry: {

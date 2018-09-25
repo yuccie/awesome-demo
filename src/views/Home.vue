@@ -43,26 +43,19 @@ export default class Home extends Vue {
 
   async created() {
     //const helperInfo = helper();
+    try {
+      const data: any = await request({
+        url : '/api/test' ,
+        method : 'get'
+      });
+      this.userName = data.name;
+      // eslint-disable-next-line
+      console.log('data' , data);
+    } catch (e) {
+      // eslint-disable-next-line
+      console.log('e', e);
+    }
 
-    const data: any = await request({
-      url : '/api/test' ,
-      method : 'get'
-    });
-    this.userName = data.name;
-    // eslint-disable-next-line
-    console.log('data' , data);
-    this.getOtherData();
   }
-
-  async getOtherData() {
-    const otherData: any = await request({
-      url: '/apiOther/newTest',
-      method: 'get'
-    });
-    this.date = otherData.currentDate;
-    // eslint-disable-next-line
-    console.log('otherData', otherData);
-  }
-
 }
 </script>

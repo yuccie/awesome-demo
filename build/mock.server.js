@@ -4,6 +4,7 @@ const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
 const requireDir = require('require-dir');
+const vueConfig = require('./vue.config.js');
 
 const app = express();
 const router = express.Router();
@@ -14,6 +15,8 @@ const port = config.port;
 const routeModules = requireDir(path.resolve(config.contentBase), {recurse: true});
 
 const nativeToString = Object.prototype.toString;
+
+let distPath = vueConfig.outputDir || 'dist';
 
 (function recursiveAppay(routeModules) {
   for (let moduleName in routeModules) {

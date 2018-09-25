@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/utils/helper.ts"],"names":[],"mappings":"gIACE,MAAO","file":"static/js/chunk-common.b6befd0f.js","sourcesContent":["export default function():string {\n  return '你好, 世界！我从地球来, 你是哪儿的';\n}"],"sourceRoot":""}
