@@ -79,7 +79,7 @@ module.exports = {
   // },  
 
   css: undefined,
-  // baseUrl: '/spa/',
+  baseUrl: '/spa/',
   assetsDir: buildConfig.assetsDir,
 
   devServer: {

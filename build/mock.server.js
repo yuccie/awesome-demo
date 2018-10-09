@@ -4,19 +4,25 @@ const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
 const requireDir = require('require-dir');
-const vueConfig = require('./vue.config.js');
+const parse = require('url-parse');
+const nodeEnv = process.env.NODE_ENV;
+const config = require('./config');
+console.log('nodeEnv', nodeEnv);
+const proxyInfo = config[nodeEnv].proxy;
+let port = 3000;
+Object.keys(proxyInfo).forEach((objKey, index) => {
+  if (index === 0) {
+    let objTarget = proxyInfo[objKey];
+    let parsePath = parse(objTarget);
+    port = parsePath.port;
+  }
+});
 
 const app = express();
 const router = express.Router();
-
-const config = require('./config');
-const port = config.port;
-
 const routeModules = requireDir(path.resolve(config.contentBase), {recurse: true});
 
 const nativeToString = Object.prototype.toString;
-
-let distPath = vueConfig.outputDir || 'dist';
 
 (function recursiveAppay(routeModules) {
   for (let moduleName in routeModules) {
