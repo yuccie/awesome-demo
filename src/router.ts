@@ -28,6 +28,11 @@ export default new Router({
       // this generates a separate chunk (other.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "other" */ './views/Other.vue')
-    }    
+    },  
+    {
+      path: '/demos/footerBottom',
+      name: 'FooterDown',
+      component: () => import(/* webpackChunkName: "about" */ './views/demos/footerBottom/index.vue')
+    }, 
   ]
 });
